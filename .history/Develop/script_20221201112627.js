@@ -7,7 +7,10 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 
-
+var lower = "abcdefghijklmnopqrstuvwxyz"
+var upper = lower.toUpperCase();
+var numbers = "0123456789"
+var special = "~`!@#$%^&*()_-+={[}]|\\:;\"'<,>.?/"
 // Function to collect password length(Validate password length is between 8-128 AND is a number)
 function getPasswordLength() {
   var passwordLength = prompt("How long would you like your password to be? ")
@@ -19,36 +22,10 @@ function getPasswordLength() {
 // Function to confirm which character sets to included. And adds selected character set to the available characters array(Line5) ( Numbers, letters, special characters)
 // 4 confirms. if confirm is true add selected character set to array
 function getCharacterTypes() {
-  const lower = "abcdefghijklmnopqrstuvwxyz"
-  const upper = lower.toUpperCase();
-  const numbers = "0123456789"
-  const special = "~`!@#$%^&*()_-+={[}]|\\:;\"'<,>.?/"
-
-  var charactersToInclude = ""
-
-  // Confirm "Do you want to use lower case. If yes. Add them. If no. Do nothing"
-  var confirmLower = confirm("Is the user using lower case?")
-  var confirmUpper = confirm("Is this user using upper case?")
-  var confirmNumbers = confirm("Is the user using numbers?")
-  var confirmSpecial = confirm("Is the user using special characters?")
-
-  if (confirmLower) {
-    charactersToInclude = charactersToInclude + lower
-  }
-
-  if (confirmUpper) {
-    charactersToInclude += upper
-  }
-
-  if (confirmNumbers) {
-    charactersToInclude += numbers
-  }
-
-  if (confirmSpecial) {
-    charactersToInclude += special
-  }
-
-  return charactersToInclude
+  var lower = "abcdefghijklmnopqrstuvwxyz"
+  var upper = lower.toUpperCase();
+  var numbers = "0123456789"
+  var special = "~`!@#$%^&*()_-+={[}]|\\:;\"'<,>.?/"
 }
 function collectUserInput() {
   // Function that calls the Functions(Lines 7-8) Will return Password Length[Number], and the available characters[Array of Strings]
@@ -73,4 +50,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-console.log(getCharacterTypes())
+console.log(typeof getPasswordLength())

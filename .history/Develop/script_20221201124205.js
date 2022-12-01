@@ -47,8 +47,6 @@ function getCharacterTypes() {
   if (confirmSpecial) {
     charactersToInclude += special
   }
-
-  return charactersToInclude
 }
 function collectUserInput() {
   // Function that calls the Functions(Lines 7-8) Will return Password Length[Number], and the available characters[Array of Strings]
@@ -73,4 +71,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-console.log(getCharacterTypes())
+console.log(typeof getPasswordLength())
