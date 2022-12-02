@@ -9,7 +9,7 @@ var generateBtn = document.querySelector("#generate");
 
 
 // Function to collect password length(Validate password length is between 8-128 AND is a number)
-function getPasswordLength() {
+function getPasswordLength(i) {
   var passwordLength = prompt("How long would you like your password to be? ")
   while (parseInt(passwordLength) != passwordLength || passwordLength > 128 || passwordLength < 8) {
     passwordLength = prompt("You must enter a number between 8-128 for password length ")
@@ -27,17 +27,10 @@ function getCharacterTypes() {
   var charactersToInclude = ""
 
   // Confirm "Do you want to use lower case. If yes. Add them. If no. Do nothing"
-  var confirmLower
-  var confirmUpper
-  var confirmNumbers
-  var confirmSpecial
-
-  while (!confirmLower && !confirmUpper && !confirmNumbers && !confirmSpecial) {
-    confirmUpper = confirm("Is this user using upper case?")
-    confirmNumbers = confirm("Is the user using numbers?")
-    confirmSpecial = confirm("Is the user using special characters?")
-    confirmLower = confirm("Is the user using lower case?")
-  }
+  var confirmLower = confirm("Is the user using lower case?")
+  var confirmUpper = confirm("Is this user using upper case?")
+  var confirmNumbers = confirm("Is the user using numbers?")
+  var confirmSpecial = confirm("Is the user using special characters?")
 
   if (confirmLower) {
     charactersToInclude = charactersToInclude + lower
@@ -57,21 +50,20 @@ function getCharacterTypes() {
 
   return charactersToInclude
 }
-// function collectUserInput() {
-//   // Function Will return Password Length[Number], and the available characters[Array of Strings]
-//   if (getCharacterTypes) {
-//     if (!confirmLower && !confirmUpper && !confirmNumbers && !confirmSpecial) {
-//       alert("You must select at least one character type!")
-//     } else
-//       if (comfirmLower && confirmUpper && confirmNumbers && confirmSpecial) {
-//         for (i = 0; i >= getCharacterTypes; i++) {
+function collectUserInput(getCharacterTypes) {
+  // Function Will return Password Length[Number], and the available characters[Array of Strings]
+  if (getPasswordLength) {
+    if (!confirmLower && !confirmUpper && !confirmNumbers && !confirmSpecial) {
+      alert("You must select at least one character type!")
+    } else
+      if (comfirmLower && confirmUpper && confirmNumbers && confirmSpecial) {
+        for (i = 0; i >= getPasswordLength; i++) {
 
-//         }
-//       }
+        }
+      }
 
-//   }
-
-// }
+  }
+}
 
 function returnRandomCharacter(arrayOfCharacters) {
   // Function that randomly pulls one character set from Array(Line5). Returns a randomly selected character from that character set
@@ -79,13 +71,7 @@ function returnRandomCharacter(arrayOfCharacters) {
 }
 function generatePassword() {
   // Function to call on the function(Line 11) as many times as the password is long[For loop]. Adds the return value to the password variable. Once the for loop has completed. return the password variable.
-  var passwordLength = getPasswordLength()
-  var passwordOptions = getCharacterTypes()
-  var password = ""
-  for (i = 0; i < passwordLength; i++) {
-    password += passwordOptions[Math.floor(Math.random() * passwordOptions.length)]
-  }
-  return password
+
 }
 
 function writePassword() {
@@ -98,3 +84,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+console.log(getPasswordLength())
